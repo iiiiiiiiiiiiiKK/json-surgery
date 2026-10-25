@@ -1290,32 +1290,36 @@ html[data-theme='light'] {
     --header-h: auto;
   }
 
-  /* Phones: the toolbar wraps onto its own rows instead of scrolling sideways,
-     so every control stays visible without a hidden horizontal strip. */
-  .header {
-    padding: 6px 10px;
-    gap: 8px;
+  /* ---- Compact header -------------------------------------------------
+     Two fixed zones instead of a wrapping toolbar:
+       row 1:  brand · 𝕏 badge · overflow (⋯)
+       row 2:  the 6 most used actions, one 44px row, never wraps
+     Every secondary action lives in the bottom sheet behind ⋯, so the header
+     has a constant, predictable height instead of 2–3 wrapped rows. */
+  .header-compact {
+    padding: 8px 10px 6px;
+    gap: 6px 8px;
     flex-wrap: wrap;
     height: auto;
     overflow: visible;
+    align-content: flex-start;
   }
-  /* First line: brand on the left, 𝕏 badge on the right.
-     The toolbar drops to its own full-width row underneath. */
-  .brand {
+  .header-compact .brand {
     order: 0;
+    flex: 1 1 auto;
+    min-width: 0;
   }
-  .x-link {
+  .header-compact .x-link {
     order: 1;
     margin-left: auto;
   }
-  .header-actions {
+  .header-compact .rail-more {
     order: 2;
-    margin-left: 0;
-    width: 100%;
-    flex-wrap: wrap;
-    overflow: visible;
-    gap: 6px;
   }
+  .header-compact .mobile-rail {
+    order: 3;
+  }
+
   .brand-title {
     font-size: 13.5px;
   }
@@ -1325,9 +1329,76 @@ html[data-theme='light'] {
   .x-link {
     padding: 6px 8px;
   }
-  .tool-group {
+
+  /* Overflow trigger: same visual weight as the badges, 36px touch target. */
+  .rail-more {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 32px;
     flex: 0 0 auto;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text-muted);
+    cursor: pointer;
   }
+  .rail-more:active {
+    background: var(--surface-3);
+    color: var(--text);
+  }
+  .rail-more[aria-expanded='true'] {
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    background: var(--accent-soft);
+  }
+
+  /* The action rail: equal-width columns, one row, no wrapping. */
+  .mobile-rail {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+    width: 100%;
+  }
+
+  .rail-btn {
+    appearance: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 46px;
+    padding: 5px 2px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+    color: var(--text);
+    font: inherit;
+    font-size: 10.5px;
+    line-height: 1.1;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease),
+      border-color var(--dur) var(--ease);
+  }
+  .rail-btn span {
+    white-space: nowrap;
+    letter-spacing: -0.2px;
+  }
+  .rail-btn:active:not(:disabled) {
+    background: var(--surface-3);
+  }
+  .rail-btn:disabled {
+    opacity: 0.38;
+  }
+  .rail-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
   .pane-editor,
   .pane-side {
     min-height: 0;
@@ -1579,3 +1650,190 @@ html[data-theme='light'] {
   }
 }
 
+
+/* ===================================================================
+   Bottom sheet (compact header overflow menu)
+   =================================================================== */
+
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 320;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(3, 7, 12, 0.55);
+  backdrop-filter: blur(2px);
+  animation: sheet-fade 160ms var(--ease);
+}
+
+@keyframes sheet-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.sheet {
+  width: 100%;
+  max-width: 560px;
+  max-height: 82vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-bottom: none;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.45);
+  padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  animation: sheet-up 220ms var(--ease);
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(14px);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.sheet-grip {
+  width: 38px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border-strong);
+  margin: 8px auto 0;
+}
+
+.sheet-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px 8px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.sheet-head h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 650;
+}
+.sheet-head .btn {
+  margin-left: auto;
+}
+
+.sheet-body {
+  padding: 6px 12px 4px;
+  display: grid;
+  gap: 10px;
+}
+
+.sheet-section {
+  display: grid;
+  gap: 2px;
+}
+
+.sheet-title {
+  margin: 8px 4px 2px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.sheet-action {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sheet-action:active:not(:disabled) {
+  background: var(--surface-2);
+}
+.sheet-action:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.sheet-action:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.sheet-action.danger {
+  color: var(--danger);
+}
+
+.sheet-action-icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  border-radius: 9px;
+  background: var(--surface-2);
+  color: inherit;
+}
+.sheet-action.danger .sheet-action-icon {
+  background: var(--danger-soft);
+}
+
+.sheet-action-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.sheet-action-label {
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.sheet-action-hint {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.sheet-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 10px;
+}
+.sheet-row-label {
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.sheet-row .select {
+  margin-left: auto;
+  min-width: 96px;
+}
+
+.sheet-note {
+  margin: 4px 6px 6px;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--text-faint);
+}
+
+@media (min-width: 861px) {
+  /* The sheet and the rail only exist on compact layouts. */
+  .sheet-backdrop {
+    display: none;
+  }
+}

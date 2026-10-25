@@ -1,6 +1,6 @@
 {
-  "target": "https://iiiiiiiiiiiiiKK.github.io/json-surgery/",
-  "at": "2026-10-25T09:02:26.729Z",
+  "target": "http://127.0.0.1:4193/",
+  "at": "2026-10-25T09:48:53.642Z",
   "results": [
     {
       "viewport": "iPhone SE (1st)",
@@ -12,7 +12,7 @@
       "viewport": "iPhone SE (1st)",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=7 headerTop=0"
+      "detail": "linkTop=10 headerTop=0"
     },
     {
       "viewport": "iPhone SE (1st)",
@@ -46,9 +46,15 @@
     },
     {
       "viewport": "iPhone SE (1st)",
-      "check": "主要触控目标 ≥ 24×28",
+      "check": "常用操作触控目标 ≥ 24×28",
       "ok": true,
       "detail": ""
+    },
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "顶部固定两行（品牌行 + 常用操作行）",
+      "ok": true,
+      "detail": "header=99px buttons=6 rows=1 workspace=370px"
     },
     {
       "viewport": "iPhone SE (1st)",
@@ -66,7 +72,7 @@
       "viewport": "iPhone SE (2/3)",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=7 headerTop=0"
+      "detail": "linkTop=10 headerTop=0"
     },
     {
       "viewport": "iPhone SE (2/3)",
@@ -100,9 +106,15 @@
     },
     {
       "viewport": "iPhone SE (2/3)",
-      "check": "主要触控目标 ≥ 24×28",
+      "check": "常用操作触控目标 ≥ 24×28",
       "ok": true,
       "detail": ""
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "顶部固定两行（品牌行 + 常用操作行）",
+      "ok": true,
+      "detail": "header=99px buttons=6 rows=1 workspace=469px"
     },
     {
       "viewport": "iPhone SE (2/3)",
@@ -120,7 +132,7 @@
       "viewport": "iPhone 13 mini",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=7 headerTop=0"
+      "detail": "linkTop=10 headerTop=0"
     },
     {
       "viewport": "iPhone 13 mini",
@@ -154,9 +166,15 @@
     },
     {
       "viewport": "iPhone 13 mini",
-      "check": "主要触控目标 ≥ 24×28",
+      "check": "常用操作触控目标 ≥ 24×28",
       "ok": true,
       "detail": ""
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "顶部固定两行（品牌行 + 常用操作行）",
+      "ok": true,
+      "detail": "header=99px buttons=6 rows=1 workspace=614px"
     },
     {
       "viewport": "iPhone 13 mini",
@@ -174,7 +192,7 @@
       "viewport": "iPhone 13",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=7 headerTop=0"
+      "detail": "linkTop=10 headerTop=0"
     },
     {
       "viewport": "iPhone 13",
@@ -208,9 +226,15 @@
     },
     {
       "viewport": "iPhone 13",
-      "check": "主要触控目标 ≥ 24×28",
+      "check": "常用操作触控目标 ≥ 24×28",
       "ok": true,
       "detail": ""
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "顶部固定两行（品牌行 + 常用操作行）",
+      "ok": true,
+      "detail": "header=99px buttons=6 rows=1 workspace=646px"
     },
     {
       "viewport": "iPhone 13",
@@ -228,7 +252,7 @@
       "viewport": "iPhone 13 Pro Max",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=7 headerTop=0"
+      "detail": "linkTop=10 headerTop=0"
     },
     {
       "viewport": "iPhone 13 Pro Max",
@@ -262,9 +286,15 @@
     },
     {
       "viewport": "iPhone 13 Pro Max",
-      "check": "主要触控目标 ≥ 24×28",
+      "check": "常用操作触控目标 ≥ 24×28",
       "ok": true,
       "detail": ""
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "顶部固定两行（品牌行 + 常用操作行）",
+      "ok": true,
+      "detail": "header=99px buttons=6 rows=1 workspace=728px"
     },
     {
       "viewport": "iPhone 13 Pro Max",
@@ -282,7 +312,7 @@
       "viewport": "iPhone 15 Pro",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=7 headerTop=0"
+      "detail": "linkTop=10 headerTop=0"
     },
     {
       "viewport": "iPhone 15 Pro",
@@ -316,9 +346,15 @@
     },
     {
       "viewport": "iPhone 15 Pro",
-      "check": "主要触控目标 ≥ 24×28",
+      "check": "常用操作触控目标 ≥ 24×28",
       "ok": true,
       "detail": ""
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "顶部固定两行（品牌行 + 常用操作行）",
+      "ok": true,
+      "detail": "header=99px buttons=6 rows=1 workspace=654px"
     },
     {
       "viewport": "iPhone 15 Pro",
@@ -336,7 +372,7 @@
       "viewport": "iPad mini portrait",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=7 headerTop=0"
+      "detail": "linkTop=10 headerTop=0"
     },
     {
       "viewport": "iPad mini portrait",
@@ -370,9 +406,15 @@
     },
     {
       "viewport": "iPad mini portrait",
-      "check": "主要触控目标 ≥ 24×28",
+      "check": "常用操作触控目标 ≥ 24×28",
       "ok": true,
       "detail": ""
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "顶部固定两行（品牌行 + 常用操作行）",
+      "ok": true,
+      "detail": "header=99px buttons=6 rows=1 workspace=961px"
     },
     {
       "viewport": "iPad mini portrait",
@@ -390,7 +432,7 @@
       "viewport": "iPad Pro 11 portrait",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=7 headerTop=0"
+      "detail": "linkTop=10 headerTop=0"
     },
     {
       "viewport": "iPad Pro 11 portrait",
@@ -424,9 +466,15 @@
     },
     {
       "viewport": "iPad Pro 11 portrait",
-      "check": "主要触控目标 ≥ 24×28",
+      "check": "常用操作触控目标 ≥ 24×28",
       "ok": true,
       "detail": ""
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "顶部固定两行（品牌行 + 常用操作行）",
+      "ok": true,
+      "detail": "header=99px buttons=6 rows=1 workspace=1022px"
     },
     {
       "viewport": "iPad Pro 11 portrait",
@@ -590,7 +638,7 @@
       "w": 32,
       "h": 28,
       "insideHeader": true,
-      "linkTop": 7,
+      "linkTop": 10,
       "headerTop": 0
     },
     {
@@ -603,7 +651,7 @@
       "w": 32,
       "h": 28,
       "insideHeader": true,
-      "linkTop": 7,
+      "linkTop": 10,
       "headerTop": 0
     },
     {
@@ -616,7 +664,7 @@
       "w": 32,
       "h": 28,
       "insideHeader": true,
-      "linkTop": 7,
+      "linkTop": 10,
       "headerTop": 0
     },
     {
@@ -629,7 +677,7 @@
       "w": 32,
       "h": 28,
       "insideHeader": true,
-      "linkTop": 7,
+      "linkTop": 10,
       "headerTop": 0
     },
     {
@@ -642,7 +690,7 @@
       "w": 32,
       "h": 28,
       "insideHeader": true,
-      "linkTop": 7,
+      "linkTop": 10,
       "headerTop": 0
     },
     {
@@ -655,7 +703,7 @@
       "w": 32,
       "h": 28,
       "insideHeader": true,
-      "linkTop": 7,
+      "linkTop": 10,
       "headerTop": 0
     },
     {
@@ -668,7 +716,7 @@
       "w": 32,
       "h": 28,
       "insideHeader": true,
-      "linkTop": 7,
+      "linkTop": 10,
       "headerTop": 0
     },
     {
@@ -681,7 +729,7 @@
       "w": 32,
       "h": 28,
       "insideHeader": true,
-      "linkTop": 7,
+      "linkTop": 10,
       "headerTop": 0
     },
     {

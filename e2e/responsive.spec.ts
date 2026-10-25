@@ -40,17 +40,23 @@ for (const vp of WIDTHS) {
       const geometry = await page.evaluate(() => {
         const a = document.querySelector('[data-testid="author-link"]') as HTMLElement | null;
         const header = document.querySelector('header') as HTMLElement | null;
+        const more = document.querySelector('[data-testid="btn-more"]') as HTMLElement | null;
         if (!a || !header) return null;
         const ar = a.getBoundingClientRect();
         const hr = header.getBoundingClientRect();
+        const mr = more ? more.getBoundingClientRect() : null;
         return {
           insideHeader:
             ar.top >= hr.top - 1 && ar.bottom <= hr.bottom + 1 && ar.left >= hr.left - 1 && ar.right <= hr.right + 1,
           top: ar.top,
+          left: ar.left,
           right: ar.right,
           width: ar.width,
           height: ar.height,
           viewportWidth: document.documentElement.clientWidth,
+          // Compact header: the only thing allowed to sit right of the badge is
+          // the overflow (⋯) trigger on the same row.
+          rowMatesRightOfBadge: mr ? mr.left >= ar.right - 1 : false,
         };
       });
 
@@ -59,9 +65,13 @@ for (const vp of WIDTHS) {
       // First visible row: the badge must not be pushed below the fold of a
       // wrapped toolbar.
       expect(geometry!.top).toBeLessThan(40);
-      // Right-aligned, within the viewport.
+      // Right side of the first row: either flush with the edge (desktop) or
+      // immediately followed by the ⋯ trigger (compact header).
       expect(geometry!.right).toBeLessThanOrEqual(geometry!.viewportWidth + 1);
-      expect(geometry!.viewportWidth - geometry!.right).toBeLessThan(40);
+      const gapToEdge = geometry!.viewportWidth - geometry!.right;
+      expect(gapToEdge < 40 || geometry!.rowMatesRightOfBadge).toBe(true);
+      // Right half of the screen, not lost in the middle.
+      expect(geometry!.left).toBeGreaterThan(geometry!.viewportWidth / 2);
       // WCAG 2.5.8 minimum target size.
       expect(geometry!.width).toBeGreaterThanOrEqual(24);
       expect(geometry!.height).toBeGreaterThanOrEqual(24);

@@ -6,9 +6,11 @@ import { StatsPanel } from './components/StatsPanel';
 import { QueryPanel } from './components/QueryPanel';
 import { DiffPanel } from './components/DiffPanel';
 import { ShortcutsDialog } from './components/ShortcutsDialog';
+import { MobileSheet, SheetAction } from './components/MobileSheet';
 import { useTheme } from './hooks/useTheme';
 import { useToasts } from './hooks/useToasts';
 import { useJsonWorker } from './hooks/useJsonWorker';
+import { useIsCompactLayout } from './hooks/useMediaQuery';
 import { analyzeText, diffText, formatText, queryText } from './lib/engine';
 import { formatBytes } from './lib/format';
 import { samePath, toTreePath } from './lib/paths';
@@ -33,6 +35,7 @@ export default function App() {
   const { theme, toggleTheme } = useTheme();
   const { toasts, push, dismiss } = useToasts();
   const { request, state: workerState } = useJsonWorker();
+  const compact = useIsCompactLayout();
 
   const [text, setText] = useState('');
   const [rightText, setRightText] = useState('');
@@ -40,6 +43,7 @@ export default function App() {
   const [mobileView, setMobileView] = useState<MobileView>('editor');
   const [sideOpen, setSideOpen] = useState(true);
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
   const [busy, setBusy] = useState(false);
   const [search, setSearch] = useState('');
@@ -677,7 +681,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="header">
+      <header className={`header${compact ? ' header-compact' : ''}`}>
         <div className="brand">
           <span className="brand-mark" aria-hidden="true">
             {'{ }'}
@@ -704,7 +708,93 @@ export default function App() {
           <span className="x-text">@0xkillcoin</span>
         </a>
 
-        <div className="header-actions">
+        {compact ? (
+          <>
+            {/* Compact header: three zones, no wrapping toolbar.
+                Row 1 = brand · 𝕏 · overflow menu. Row 2 = the six actions that
+                cover ~90% of real usage, each a 44px-tall labelled button. */}
+            <button
+              type="button"
+              className="rail-more"
+              onClick={() => setSheetOpen(true)}
+              title="更多操作"
+              aria-label="更多操作"
+              aria-haspopup="dialog"
+              aria-expanded={sheetOpen}
+              data-testid="btn-more"
+            >
+              <Icon name="more" size={18} />
+            </button>
+
+            <div className="mobile-rail" role="toolbar" aria-label="常用操作">
+              <button
+                type="button"
+                className="rail-btn"
+                onClick={() => void applyFormat('pretty')}
+                disabled={!text.trim()}
+                title="格式化 JSON"
+                data-testid="btn-format"
+              >
+                <Icon name="format" size={17} />
+                <span>格式化</span>
+              </button>
+              <button
+                type="button"
+                className="rail-btn"
+                onClick={() => void applyFormat('minify')}
+                disabled={!text.trim()}
+                title="压缩 JSON"
+                data-testid="btn-minify"
+              >
+                <Icon name="minify" size={17} />
+                <span>压缩</span>
+              </button>
+              <button
+                type="button"
+                className="rail-btn"
+                onClick={() => void copyText(text, '全部内容')}
+                disabled={!text.trim()}
+                title="复制全部"
+                data-testid="btn-copy"
+              >
+                <Icon name="copy" size={17} />
+                <span>复制</span>
+              </button>
+              <button
+                type="button"
+                className="rail-btn"
+                onClick={downloadJson}
+                disabled={!text.trim()}
+                title="下载 .json"
+                data-testid="btn-download"
+              >
+                <Icon name="download" size={17} />
+                <span>下载</span>
+              </button>
+              <button
+                type="button"
+                className="rail-btn"
+                onClick={() => loadSample(0)}
+                title="加载示例数据"
+                data-testid="btn-sample"
+              >
+                <Icon name="sparkles" size={17} />
+                <span>示例</span>
+              </button>
+              <button
+                type="button"
+                className="rail-btn"
+                onClick={openFile}
+                title="打开本地文件"
+                data-testid="btn-open"
+              >
+                <Icon name="folder" size={17} />
+                <span>打开</span>
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="header-actions">
           <div className="tool-group">
             <button
               type="button"
@@ -865,7 +955,128 @@ export default function App() {
             </button>
           </div>
         </div>
+        )}
       </header>
+
+      {/* Secondary actions live in a bottom sheet on phones instead of being
+          crammed into the header. Same handlers as the desktop toolbar. */}
+      <MobileSheet open={sheetOpen} title="更多操作" onClose={() => setSheetOpen(false)}>
+        <div className="sheet-section">
+          <h3 className="sheet-title">编辑</h3>
+          <SheetAction
+            icon="sort"
+            label="按键名排序"
+            hint="只排序对象键，数组顺序不变"
+            testId="btn-sort"
+            disabled={!text.trim()}
+            onClick={() => {
+              setSheetOpen(false);
+              void applyFormat('sort');
+            }}
+          />
+          <SheetAction
+            icon="undo"
+            label="撤销"
+            testId="btn-undo"
+            disabled={!editorRef.current?.canUndo()}
+            onClick={() => {
+              setSheetOpen(false);
+              editorRef.current?.undo();
+            }}
+          />
+          <SheetAction
+            icon="redo"
+            label="重做"
+            testId="btn-redo"
+            disabled={!editorRef.current?.canRedo()}
+            onClick={() => {
+              setSheetOpen(false);
+              editorRef.current?.redo();
+            }}
+          />
+          <SheetAction
+            icon="trash"
+            label="清空编辑器"
+            hint="同时清空右侧对比内容"
+            danger
+            testId="btn-clear"
+            disabled={!text && !rightText}
+            onClick={() => {
+              setSheetOpen(false);
+              clearAll();
+            }}
+          />
+        </div>
+
+        <div className="sheet-section">
+          <h3 className="sheet-title">视图</h3>
+          <div className="sheet-row">
+            <span className="sheet-row-label">缩进</span>
+            <select
+              className="select"
+              value={indent}
+              onChange={(event) => setIndent(Number(event.target.value))}
+              aria-label="缩进空格数"
+              data-testid="indent-select"
+            >
+              {INDENTS.map((value) => (
+                <option key={value} value={value}>
+                  {value === 0 ? 'Tab' : `${value} 空格`}
+                </option>
+              ))}
+            </select>
+          </div>
+          <SheetAction
+            icon="panel"
+            label={sideOpen ? '隐藏结果面板' : '显示结果面板'}
+            testId="btn-panel"
+            onClick={() => {
+              setSheetOpen(false);
+              setSideOpen((open) => !open);
+            }}
+          />
+          <SheetAction
+            icon={theme === 'dark' ? 'sun' : 'moon'}
+            label={theme === 'dark' ? '切换到浅色主题' : '切换到深色主题'}
+            testId="btn-theme"
+            onClick={() => {
+              setSheetOpen(false);
+              toggleTheme();
+            }}
+          />
+          <SheetAction
+            icon="keyboard"
+            label="键盘快捷键"
+            testId="btn-shortcuts"
+            onClick={() => {
+              setSheetOpen(false);
+              setShortcutsOpen(true);
+            }}
+          />
+        </div>
+
+        <div className="sheet-section">
+          <h3 className="sheet-title">关于</h3>
+          <p className="sheet-note">
+            所有解析、格式化、Diff 与查询都在你的设备本地完成，JSON 不会上传。
+          </p>
+          <a
+            className="sheet-action"
+            href="https://x.com/0xkillcoin"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="sheet-author-link"
+          >
+            <span className="sheet-action-icon">
+              <XLogo size={16} />
+            </span>
+            <span className="sheet-action-text">
+              <span className="sheet-action-label">作者 𝕏 @0xkillcoin</span>
+              <span className="sheet-action-hint">x.com/0xkillcoin</span>
+            </span>
+          </a>
+        </div>
+      </MobileSheet>
 
       <div className="mobile-tabs" role="tablist" aria-label="移动端视图切换">
         <button

@@ -181,13 +181,38 @@ for (const vp of VIEWPORTS) {
     const hits = await page.getByTestId('query-hit').count();
     record(vp.name, '移动端核心流程（示例→统计→查询）可用', Number(depth.replace(/,/g, '')) > 0 && hits === 4, `maxDepth=${depth} hits=${hits}`);
 
-    /* --- 6. touch targets of the main toolbar --- */
+    /* --- 6. touch targets: always-visible rail + overflow trigger --- */
     const small = [];
-    for (const id of ['btn-format', 'btn-minify', 'btn-copy', 'btn-theme', 'btn-shortcuts', 'btn-panel', 'author-link']) {
+    for (const id of ['btn-format', 'btn-minify', 'btn-copy', 'btn-download', 'btn-sample', 'btn-open', 'btn-more', 'author-link']) {
       const b = await page.getByTestId(id).boundingBox();
       if (!b || b.height < 28 || b.width < 24) small.push(`${id}=${Math.round(b?.width ?? 0)}×${Math.round(b?.height ?? 0)}`);
     }
-    record(vp.name, '主要触控目标 ≥ 24×28', small.length === 0, small.join(', '));
+    record(vp.name, '常用操作触控目标 ≥ 24×28', small.length === 0, small.join(', '));
+
+    /* --- 7. header budget: brand row + exactly one action row --- */
+    const chrome = await page.evaluate(() => {
+      const header = document.querySelector('header');
+      const rail = document.querySelector('.mobile-rail');
+      const workspace = document.querySelector('.workspace');
+      const rows = new Set();
+      if (rail) {
+        rail.querySelectorAll('button').forEach((el) => {
+          rows.add(Math.round(el.getBoundingClientRect().top / 4) * 4);
+        });
+      }
+      return {
+        headerH: Math.round(header.getBoundingClientRect().height),
+        railButtons: rail ? rail.querySelectorAll('button').length : 0,
+        railRows: rows.size,
+        workspaceH: workspace ? Math.round(workspace.getBoundingClientRect().height) : 0,
+      };
+    });
+    record(
+      vp.name,
+      '顶部固定两行（品牌行 + 常用操作行）',
+      chrome.headerH <= 120 && chrome.railButtons === 6 && chrome.railRows === 1,
+      `header=${chrome.headerH}px buttons=${chrome.railButtons} rows=${chrome.railRows} workspace=${chrome.workspaceH}px`,
+    );
   }
 
   record(vp.name, '无 JS 运行时错误', consoleErrors.length === 0, consoleErrors.slice(0, 2).join(' | '));

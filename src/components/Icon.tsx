@@ -27,7 +27,9 @@ export type IconName =
   | 'refresh'
   | 'undo'
   | 'redo'
-  | 'x';
+  | 'x'
+  | 'more'
+  | 'close';
 
 const paths: Record<IconName, JSX.Element> = {
   format: (
@@ -172,6 +174,18 @@ const paths: Record<IconName, JSX.Element> = {
   x: (
     <>
       <path d="M18 6L6 18M6 6l12 12" />
+    </>
+  ),
+  more: (
+    <>
+      <circle cx="5" cy="12" r="1.4" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+      <circle cx="19" cy="12" r="1.4" fill="currentColor" stroke="none" />
+    </>
+  ),
+  close: (
+    <>
+      <path d="M6 6l12 12M18 6L6 18" />
     </>
   ),
 };

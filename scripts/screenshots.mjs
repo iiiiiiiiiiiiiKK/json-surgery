@@ -117,6 +117,12 @@ const badgeMobile = await browser.newPage({
 await badgeMobile.goto('http://127.0.0.1:4193/');
 await badgeMobile.waitForTimeout(600);
 await badgeMobile.locator('header').screenshot({ path: `${OUT}/16-header-mobile.png` });
+
+// ---------- bottom sheet (compact header overflow) ----------
+await badgeMobile.getByTestId('btn-more').click();
+await badgeMobile.getByTestId('mobile-sheet').waitFor({ timeout: 10000 });
+await badgeMobile.waitForTimeout(450);
+await badgeMobile.screenshot({ path: `${OUT}/17-mobile-sheet.png` });
 await badgeMobile.close();
 
 await browser.close();
