@@ -15,6 +15,9 @@ const BASE_URL = `http://127.0.0.1:${PORT}`;
  *    (390×844 CSS px, DPR 3, touch input, iOS Safari user agent). Chromium is
  *    used as the rendering engine so the suite needs a single browser download;
  *    the metric, media-query and touch behaviour under test is engine-agnostic.
+ *  - `responsive-matrix` resizes a single Chromium context across 10 widths
+ *    (320 → 1920) and asserts the author badge placement plus the absence of
+ *    horizontal overflow at every one of them.
  */
 export default defineConfig({
   testDir: './e2e',
@@ -45,6 +48,11 @@ export default defineConfig({
         browserName: 'chromium',
         defaultBrowserType: 'chromium',
       },
+    },
+    {
+      name: 'responsive-matrix',
+      testMatch: /responsive\.spec\.ts/,
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
   webServer: {

@@ -688,6 +688,22 @@ export default function App() {
           </span>
         </div>
 
+        {/* Author badge. Kept as a direct child of <header> (not inside the
+            wrapping toolbar) so it always lands on the first header line,
+            top-right, on every viewport including a 320px phone. */}
+        <a
+          className="x-link"
+          href="https://x.com/0xkillcoin"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="作者 @0xkillcoin"
+          aria-label="作者 𝕏：@0xkillcoin"
+          data-testid="author-link"
+        >
+          <XLogo size={13} />
+          <span className="x-text">@0xkillcoin</span>
+        </a>
+
         <div className="header-actions">
           <div className="tool-group">
             <button
@@ -848,19 +864,6 @@ export default function App() {
               <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={15} />
             </button>
           </div>
-
-          <a
-            className="x-link"
-            href="https://x.com/0xkillcoin"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="作者 @0xkillcoin"
-            aria-label="作者 𝕏：@0xkillcoin"
-            data-testid="author-link"
-          >
-            <XLogo size={13} />
-            <span className="x-text">@0xkillcoin</span>
-          </a>
         </div>
       </header>
 

@@ -155,7 +155,48 @@ JSON Surgery 把这些麻烦收敛到一个页面里，并且**全部在本地�
 - **深色 + 浅色**主题（首屏前就恢复主题，不闪白），跟随系统偏好；
 - 移动端（≤860px）自动切换为「编辑器 / 结果面板」双标签视图，工具栏换行而不是横向滚动隐藏，状态栏自动换行；
 - 合理的空状态、加载态（Worker 就绪 / 主线程模式）、复制 toast、拖放遮罩、快捷键面板；
-- 顶部作者 **𝕏 [@0xkillcoin](https://x.com/0xkillcoin)** 链接（状态栏也有一个）。
+- 顶部作者 **𝕏 [@0xkillcoin](https://x.com/0xkillcoin)** 徽标（状态栏也有一个）。
+
+#### 顶部作者 𝕏 徽标
+
+徽标是 `<header>` 的直接子元素（不放在会换行的工具栏里），因此**在任何宽度下都停在第一行的最右侧**：
+
+| 桌面（≥861px） | 手机（≤860px） |
+| --- | --- |
+| 一行：[品牌] ——— [工具栏] [𝕏 @0xkillcoin] | 第一行：[品牌] ——— [𝕏 图标]；第二行起：工具栏换行 |
+
+<div align="center">
+
+<img src="docs/assets/15-header-desktop.png" width="72%" alt="桌面端顶部：品牌 + 工具栏 + 作者 𝕏 徽标" />
+
+<img src="docs/assets/16-header-mobile.png" width="26%" alt="手机端顶部：品牌 + 作者 𝕏 徽标（仅图标）" />
+
+</div>
+
+- `href="https://x.com/0xkillcoin"`，`target="_blank"`，`rel="noopener noreferrer"`；
+- 桌面显示 `𝕏 @0xkillcoin`（103×33px），手机显示图标（32×28px），均 ≥ WCAG 2.5.8 的最小点击区域；
+- 键盘可达（`Tab` 聚焦 + `:focus-visible` 描边），带 `aria-label="作者 𝕏：@0xkillcoin"`。
+
+#### 响应式矩阵（实测）
+
+12 个视口全部实测通过（`scripts/audit-responsive.mjs`，读取真实 DOM 几何值）：
+
+| 视口 | 宽度 | 布局 | 横向溢出 | 𝕏 徽标 |
+| --- | --- | --- | --- | --- |
+| iPhone SE (1st) | 320px | 单栏 + 切换标签 | 无 | 32×28，第一行 y=7px |
+| iPhone SE (2/3) | 375px | 单栏 + 切换标签 | 无 | 32×28，y=7px |
+| iPhone 13 mini | 375px | 单栏 + 切换标签 | 无 | 32×28，y=7px |
+| iPhone 13 | 390px | 单栏 + 切换标签 | 无 | 32×28，y=7px |
+| iPhone 13 Pro Max | 428px | 单栏 + 切换标签 | 无 | 32×28，y=7px |
+| iPhone 15 Pro | 393px | 单栏 + 切换标签 | 无 | 32×28，y=7px |
+| iPad mini 竖屏 | 744px | 单栏 + 切换标签 | 无 | 32×28，y=7px |
+| iPad Pro 11 竖屏 | 834px | 单栏 + 切换标签 | 无 | 32×28，y=7px |
+| 小笔记本 | 1024px | 左右并排 | 无 | 103×33，y=6px |
+| 笔记本 | 1280px | 左右并排 | 无 | 103×33，y=11px |
+| 桌面 | 1440px | 左右并排 | 无 | 103×33，y=11px |
+| 桌面 | 1920px | 左右并排 | 无 | 103×33，y=11px |
+
+断点：`1024px`（隐藏品牌副标题）· `1180→861px`（工具栏换行，避免横向滚动条）· `860px`（单栏 + 双标签）· `420px`（隐藏品牌文字与按钮文案，只留图标）。
 
 <div align="center">
 
@@ -164,6 +205,9 @@ JSON Surgery 把这些麻烦收敛到一个页面里，并且**全部在本地�
 <img src="docs/assets/09-mobile-editor.png" width="24%" alt="iPhone 编辑器" />
 <img src="docs/assets/10-mobile-tree.png" width="24%" alt="iPhone 树形" />
 <img src="docs/assets/11-mobile-query.png" width="24%" alt="iPhone 查询" />
+
+<img src="docs/assets/13-mobile-320-editor.png" width="22%" alt="iPhone SE 320px 编辑器" />
+<img src="docs/assets/14-mobile-320-tree.png" width="22%" alt="iPhone SE 320px 树形" />
 
 </div>
 
@@ -207,7 +251,7 @@ JSON Surgery 把这些麻烦收敛到一个页面里，并且**全部在本地�
 | 查询 | **jsonpath-plus**（MIT） | 在 Worker 中执行，限制命中数 500 |
 | 解析 | **自研**（本项目 `src/lib/parser.ts`） | 保留键顺序与数字字面量，给出行列与原因；无第三方解析依赖 |
 | 并发 | **Web Worker**（`src/workers/json.worker.ts`） | 解析 / 格式化 / 统计 / Diff / 查询都在 Worker；不可用或超时（30s）时自动回落到主线程同一套函数 |
-| 测试 | **Vitest** + **Playwright** | 108 个单元测试；32 个端到端用例（桌面 1440×900 + iPhone 13） |
+| 测试 | **Vitest** + **Playwright** | 108 个单元测试；62 个端到端用例（桌面功能 26 + iPhone 触控 6 + 响应式矩阵 30） |
 | 样式 | 原生 CSS + CSS 变量 | 无 UI 框架，主题靠 `html[data-theme]` 切换 |
 
 ### 架构
@@ -256,6 +300,15 @@ npm run e2e               # 端到端（会自动 build+preview，监听 4193）
 npm run check             # lint + 单元测试 + 生产构建
 ```
 
+响应式回归（12 个真实视口，可对本地或线上跑）：
+
+```bash
+npm run build && npm run preview -- --port 4193 --strictPort &
+npm run audit:responsive                      # 默认审计线上 Pages 地址
+node scripts/audit-responsive.mjs http://127.0.0.1:4193/   # 或审计本地构建
+# 结果写成 docs/responsive-audit.json，任一失败会以 exit code 1 退出
+```
+
 ### 截图（需要本地 preview 在 4193 端口运行）
 
 ```bash
@@ -298,11 +351,14 @@ npm run build
 
 ```
 单元测试（Vitest）： 9 个文件 / 108 个用例   ✅
-端到端（Playwright）：32 个用例              ✅
-  ├─ desktop-chromium @1440×900  26 用例
-  └─ iphone-13 (390×844, DPR3)    6 用例
+端到端（Playwright）：62 个用例              ✅
+  ├─ desktop-chromium @1440×900   26 用例（功能）
+  ├─ iphone-13 (390×844, DPR3)     6 用例（触控/布局）
+  └─ responsive-matrix            30 用例（320→1920 共 10 档视口 × 3 项）
+响应式实测脚本（audit-responsive.mjs，12 视口） 96/96 ✅
 生产构建：tsc -b && vite build                ✅
 ESLint（--max-warnings 0）                    ✅
+npm audit --omit=dev              0 vulnerabilities ✅
 ```
 
 覆盖范围（节选）：
@@ -313,7 +369,8 @@ ESLint（--max-warnings 0）                    ✅
 - **Diff**：新增/删除/修改/类型变化、嵌套对象、数组增删、完全一致；
 - **查询**：通配符、递归、切片、过滤、联合、父节点、非法表达式、上限截断；
 - **路径**：`$['a'][0]` 与 `$.a[0]` 的归一与匹配；
-- **端到端**：示例加载、格式化/排序/压缩真的改了内容、复制到剪贴板（读取校验）、下载事件、文件导入、超大文件拒绝、树搜索与路径复制、展开/折叠行数变化、查询→定位、非法表达式报错、Diff 三类差异、主题持久化、快捷键、撤销重做、Ctrl+F 搜索面板、无外部请求、大文档（约 640k 字符）后界面仍可交互、iPhone 无横向溢出、标签切换、触控目标尺寸。
+- **端到端（功能）**：示例加载、格式化/排序/压缩真的改了内容、复制到剪贴板（读取校验）、下载事件、文件导入、超大文件拒绝、树搜索与路径复制、展开/折叠行数变化、查询→定位、非法表达式报错、Diff 三类差异、主题持久化、快捷键、撤销重做、Ctrl+F 搜索面板、无外部请求、大文档（约 640k 字符）后界面仍可交互；
+- **端到端（响应式，320/375/390/428/744/834/1024/1280/1440/1920）**：𝕏 徽标在第一行右侧且可点击（含 `href`/`target`/`rel`/几何位置/尺寸）、无横向溢出（逐元素 `getBoundingClientRect` 扫描）、移动端标签真实切换面板 / 桌面端左右并排自动切换；另有 iPhone 13 专属的触控目标与 Diff 布局用例。
 
 ## 已知限制
 

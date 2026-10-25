@@ -38,6 +38,8 @@
     "e2e": "playwright test",
     "e2e:install": "playwright install chromium",
     "screenshots": "node scripts/screenshots.mjs",
+    "audit:responsive": "node scripts/audit-responsive.mjs",
+    "verify:live": "node scripts/verify-live.mjs",
     "check": "npm run lint && npm run test && npm run build"
   },
   "dependencies": {

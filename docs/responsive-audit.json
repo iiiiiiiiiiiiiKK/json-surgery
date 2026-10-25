@@ -1,0 +1,740 @@
+{
+  "target": "http://127.0.0.1:4199/",
+  "at": "2026-10-25T08:39:46.500Z",
+  "results": [
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+    },
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=7 headerTop=0"
+    },
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "32×28"
+    },
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=320 clientWidth=320"
+    },
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "移动端：出现「编辑器 / 结果面板」切换标签",
+      "ok": true,
+      "detail": "tabs=true"
+    },
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "移动端标签真实切换面板（非仅样式隐藏）",
+      "ok": true,
+      "detail": "side=true editorHidden=true back=true"
+    },
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "移动端核心流程（示例→统计→查询）可用",
+      "ok": true,
+      "detail": "maxDepth=5 hits=4"
+    },
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "主要触控目标 ≥ 24×28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone SE (1st)",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=7 headerTop=0"
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "32×28"
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=375 clientWidth=375"
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "移动端：出现「编辑器 / 结果面板」切换标签",
+      "ok": true,
+      "detail": "tabs=true"
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "移动端标签真实切换面板（非仅样式隐藏）",
+      "ok": true,
+      "detail": "side=true editorHidden=true back=true"
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "移动端核心流程（示例→统计→查询）可用",
+      "ok": true,
+      "detail": "maxDepth=5 hits=4"
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "主要触控目标 ≥ 24×28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=7 headerTop=0"
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "32×28"
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=375 clientWidth=375"
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "移动端：出现「编辑器 / 结果面板」切换标签",
+      "ok": true,
+      "detail": "tabs=true"
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "移动端标签真实切换面板（非仅样式隐藏）",
+      "ok": true,
+      "detail": "side=true editorHidden=true back=true"
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "移动端核心流程（示例→统计→查询）可用",
+      "ok": true,
+      "detail": "maxDepth=5 hits=4"
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "主要触控目标 ≥ 24×28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=7 headerTop=0"
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "32×28"
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=390 clientWidth=390"
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "移动端：出现「编辑器 / 结果面板」切换标签",
+      "ok": true,
+      "detail": "tabs=true"
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "移动端标签真实切换面板（非仅样式隐藏）",
+      "ok": true,
+      "detail": "side=true editorHidden=true back=true"
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "移动端核心流程（示例→统计→查询）可用",
+      "ok": true,
+      "detail": "maxDepth=5 hits=4"
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "主要触控目标 ≥ 24×28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone 13",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=7 headerTop=0"
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "32×28"
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=428 clientWidth=428"
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "移动端：出现「编辑器 / 结果面板」切换标签",
+      "ok": true,
+      "detail": "tabs=true"
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "移动端标签真实切换面板（非仅样式隐藏）",
+      "ok": true,
+      "detail": "side=true editorHidden=true back=true"
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "移动端核心流程（示例→统计→查询）可用",
+      "ok": true,
+      "detail": "maxDepth=5 hits=4"
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "主要触控目标 ≥ 24×28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=7 headerTop=0"
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "32×28"
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=393 clientWidth=393"
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "移动端：出现「编辑器 / 结果面板」切换标签",
+      "ok": true,
+      "detail": "tabs=true"
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "移动端标签真实切换面板（非仅样式隐藏）",
+      "ok": true,
+      "detail": "side=true editorHidden=true back=true"
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "移动端核心流程（示例→统计→查询）可用",
+      "ok": true,
+      "detail": "maxDepth=5 hits=4"
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "主要触控目标 ≥ 24×28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=7 headerTop=0"
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "32×28"
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=744 clientWidth=744"
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "移动端：出现「编辑器 / 结果面板」切换标签",
+      "ok": true,
+      "detail": "tabs=true"
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "移动端标签真实切换面板（非仅样式隐藏）",
+      "ok": true,
+      "detail": "side=true editorHidden=true back=true"
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "移动端核心流程（示例→统计→查询）可用",
+      "ok": true,
+      "detail": "maxDepth=5 hits=4"
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "主要触控目标 ≥ 24×28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=7 headerTop=0"
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "32×28"
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=834 clientWidth=834"
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "移动端：出现「编辑器 / 结果面板」切换标签",
+      "ok": true,
+      "detail": "tabs=true"
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "移动端标签真实切换面板（非仅样式隐藏）",
+      "ok": true,
+      "detail": "side=true editorHidden=true back=true"
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "移动端核心流程（示例→统计→查询）可用",
+      "ok": true,
+      "detail": "maxDepth=5 hits=4"
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "主要触控目标 ≥ 24×28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "laptop small",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 103×33"
+    },
+    {
+      "viewport": "laptop small",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=6 headerTop=0"
+    },
+    {
+      "viewport": "laptop small",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "103×33"
+    },
+    {
+      "viewport": "laptop small",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=1024 clientWidth=1024"
+    },
+    {
+      "viewport": "laptop small",
+      "check": "桌面端：编辑器与结果面板左右并排",
+      "ok": true,
+      "detail": "sideBySide=true tabs=false"
+    },
+    {
+      "viewport": "laptop small",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "laptop 1280",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 103×33"
+    },
+    {
+      "viewport": "laptop 1280",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=11 headerTop=0"
+    },
+    {
+      "viewport": "laptop 1280",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "103×33"
+    },
+    {
+      "viewport": "laptop 1280",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=1280 clientWidth=1280"
+    },
+    {
+      "viewport": "laptop 1280",
+      "check": "桌面端：编辑器与结果面板左右并排",
+      "ok": true,
+      "detail": "sideBySide=true tabs=false"
+    },
+    {
+      "viewport": "laptop 1280",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "desktop 1440",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 103×33"
+    },
+    {
+      "viewport": "desktop 1440",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=11 headerTop=0"
+    },
+    {
+      "viewport": "desktop 1440",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "103×33"
+    },
+    {
+      "viewport": "desktop 1440",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=1440 clientWidth=1440"
+    },
+    {
+      "viewport": "desktop 1440",
+      "check": "桌面端：编辑器与结果面板左右并排",
+      "ok": true,
+      "detail": "sideBySide=true tabs=false"
+    },
+    {
+      "viewport": "desktop 1440",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "viewport": "desktop 1920",
+      "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
+      "ok": true,
+      "detail": "href=https://x.com/0xkillcoin target=_blank 103×33"
+    },
+    {
+      "viewport": "desktop 1920",
+      "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
+      "ok": true,
+      "detail": "linkTop=11 headerTop=0"
+    },
+    {
+      "viewport": "desktop 1920",
+      "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
+      "ok": true,
+      "detail": "103×33"
+    },
+    {
+      "viewport": "desktop 1920",
+      "check": "无横向溢出（scrollWidth ≤ clientWidth）",
+      "ok": true,
+      "detail": "scrollWidth=1920 clientWidth=1920"
+    },
+    {
+      "viewport": "desktop 1920",
+      "check": "桌面端：编辑器与结果面板左右并排",
+      "ok": true,
+      "detail": "sideBySide=true tabs=false"
+    },
+    {
+      "viewport": "desktop 1920",
+      "check": "无 JS 运行时错误",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "headerChecks": [
+    {
+      "viewport": "iPhone SE (1st)",
+      "width": 320,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 32,
+      "h": 28,
+      "insideHeader": true,
+      "linkTop": 7,
+      "headerTop": 0
+    },
+    {
+      "viewport": "iPhone SE (2/3)",
+      "width": 375,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 32,
+      "h": 28,
+      "insideHeader": true,
+      "linkTop": 7,
+      "headerTop": 0
+    },
+    {
+      "viewport": "iPhone 13 mini",
+      "width": 375,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 32,
+      "h": 28,
+      "insideHeader": true,
+      "linkTop": 7,
+      "headerTop": 0
+    },
+    {
+      "viewport": "iPhone 13",
+      "width": 390,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 32,
+      "h": 28,
+      "insideHeader": true,
+      "linkTop": 7,
+      "headerTop": 0
+    },
+    {
+      "viewport": "iPhone 13 Pro Max",
+      "width": 428,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 32,
+      "h": 28,
+      "insideHeader": true,
+      "linkTop": 7,
+      "headerTop": 0
+    },
+    {
+      "viewport": "iPhone 15 Pro",
+      "width": 393,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 32,
+      "h": 28,
+      "insideHeader": true,
+      "linkTop": 7,
+      "headerTop": 0
+    },
+    {
+      "viewport": "iPad mini portrait",
+      "width": 744,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 32,
+      "h": 28,
+      "insideHeader": true,
+      "linkTop": 7,
+      "headerTop": 0
+    },
+    {
+      "viewport": "iPad Pro 11 portrait",
+      "width": 834,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 32,
+      "h": 28,
+      "insideHeader": true,
+      "linkTop": 7,
+      "headerTop": 0
+    },
+    {
+      "viewport": "laptop small",
+      "width": 1024,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 103,
+      "h": 33,
+      "insideHeader": true,
+      "linkTop": 6,
+      "headerTop": 0
+    },
+    {
+      "viewport": "laptop 1280",
+      "width": 1280,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 103,
+      "h": 33,
+      "insideHeader": true,
+      "linkTop": 11,
+      "headerTop": 0
+    },
+    {
+      "viewport": "desktop 1440",
+      "width": 1440,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 103,
+      "h": 33,
+      "insideHeader": true,
+      "linkTop": 11,
+      "headerTop": 0
+    },
+    {
+      "viewport": "desktop 1920",
+      "width": 1920,
+      "visible": true,
+      "href": "https://x.com/0xkillcoin",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "w": 103,
+      "h": 33,
+      "insideHeader": true,
+      "linkTop": 11,
+      "headerTop": 0
+    }
+  ]
+}

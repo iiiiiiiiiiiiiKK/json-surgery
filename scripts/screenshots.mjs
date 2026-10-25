@@ -83,5 +83,41 @@ await mobile.waitForTimeout(400);
 await mobile.screenshot({ path: `${OUT}/11-mobile-query.png` });
 await mobile.close();
 
+// ---------- iPhone SE (320px) — the narrowest phone still supported ----------
+const small = await browser.newPage({
+  viewport: { width: 320, height: 568 },
+  deviceScaleFactor: 2,
+  isMobile: true,
+  hasTouch: true,
+});
+await small.goto('http://127.0.0.1:4193/');
+await small.waitForTimeout(600);
+await small.getByTestId('btn-sample').click();
+await small.getByTestId('status-valid').waitFor({ timeout: 20000 });
+await small.waitForTimeout(400);
+await small.screenshot({ path: `${OUT}/13-mobile-320-editor.png` });
+await small.getByTestId('mobile-tab-side').click();
+await small.waitForTimeout(400);
+await small.screenshot({ path: `${OUT}/14-mobile-320-tree.png` });
+await small.close();
+
+// ---------- author badge close-up (header only) ----------
+const badge = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 3 });
+await badge.goto('http://127.0.0.1:4193/');
+await badge.waitForTimeout(600);
+await badge.locator('header').screenshot({ path: `${OUT}/15-header-desktop.png` });
+await badge.close();
+
+const badgeMobile = await browser.newPage({
+  viewport: { width: 390, height: 844 },
+  deviceScaleFactor: 3,
+  isMobile: true,
+  hasTouch: true,
+});
+await badgeMobile.goto('http://127.0.0.1:4193/');
+await badgeMobile.waitForTimeout(600);
+await badgeMobile.locator('header').screenshot({ path: `${OUT}/16-header-mobile.png` });
+await badgeMobile.close();
+
 await browser.close();
 console.log('screenshots written to', OUT);
