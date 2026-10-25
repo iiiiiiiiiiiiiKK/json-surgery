@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { loadSample } from './helpers';
 
 /**
  * iPhone layout + touch behaviour.
@@ -91,7 +92,7 @@ test.describe('JSON Surgery — 手机端（iPhone 13）', () => {
   });
 
   test('手机上仍能加载示例、查看统计与查询', async ({ page }) => {
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
     await expect(page.getByTestId('status-valid')).toBeVisible({ timeout: 25_000 });
 
     await page.getByTestId('mobile-tab-side').click();
@@ -145,7 +146,7 @@ test.describe('JSON Surgery — 手机端（iPhone 13）', () => {
   });
 
   test('抽屉里的排序真的改变了文档内容', async ({ page }) => {
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
     await expect(page.getByTestId('status-valid')).toBeVisible({ timeout: 25_000 });
 
     const before = await page.getByTestId('json-editor').locator('.cm-content').innerText();

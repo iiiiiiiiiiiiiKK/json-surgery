@@ -45,6 +45,9 @@ check('品牌标题', (await page.locator('.brand-title').innerText()) === 'JSON
 check('作者 X 链接', (await page.getByTestId('author-link').getAttribute('href')) === 'https://x.com/0xkillcoin');
 
 await page.getByTestId('btn-sample').click();
+await page.getByTestId('sample-library').waitFor();
+await page.getByTestId('sample-item-store').click();
+await page.getByTestId('sample-library').waitFor({ state: 'hidden' });
 await page.getByTestId('status-valid').waitFor({ timeout: 30000 });
 check('示例载入并校验通过', true);
 
@@ -115,6 +118,9 @@ check('iPhone 无横向溢出', overflow.doc <= overflow.vw + 1 && overflow.off.
 check('iPhone 移动端切换标签可见', await mobile.locator('.mobile-tabs').isVisible());
 
 await mobile.getByTestId('btn-sample').click();
+await mobile.getByTestId('sample-library').waitFor();
+await mobile.getByTestId('sample-item-store').click();
+await mobile.getByTestId('sample-library').waitFor({ state: 'hidden' });
 await mobile.getByTestId('status-valid').waitFor({ timeout: 30000 });
 await mobile.getByTestId('mobile-tab-side').click();
 await mobile.getByTestId('tab-query').click();

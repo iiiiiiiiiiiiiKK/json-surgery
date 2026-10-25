@@ -1,24 +1,24 @@
 {
   "target": "http://127.0.0.1:4193/",
-  "at": "2026-10-25T09:48:53.642Z",
+  "at": "2026-10-25T12:26:05.427Z",
   "results": [
     {
       "viewport": "iPhone SE (1st)",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×32"
     },
     {
       "viewport": "iPhone SE (1st)",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=10 headerTop=0"
+      "detail": "linkTop=8 headerTop=0"
     },
     {
       "viewport": "iPhone SE (1st)",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "32×28"
+      "detail": "32×32"
     },
     {
       "viewport": "iPhone SE (1st)",
@@ -66,19 +66,19 @@
       "viewport": "iPhone SE (2/3)",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×32"
     },
     {
       "viewport": "iPhone SE (2/3)",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=10 headerTop=0"
+      "detail": "linkTop=8 headerTop=0"
     },
     {
       "viewport": "iPhone SE (2/3)",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "32×28"
+      "detail": "32×32"
     },
     {
       "viewport": "iPhone SE (2/3)",
@@ -126,19 +126,19 @@
       "viewport": "iPhone 13 mini",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×32"
     },
     {
       "viewport": "iPhone 13 mini",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=10 headerTop=0"
+      "detail": "linkTop=8 headerTop=0"
     },
     {
       "viewport": "iPhone 13 mini",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "32×28"
+      "detail": "32×32"
     },
     {
       "viewport": "iPhone 13 mini",
@@ -186,19 +186,19 @@
       "viewport": "iPhone 13",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×32"
     },
     {
       "viewport": "iPhone 13",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=10 headerTop=0"
+      "detail": "linkTop=8 headerTop=0"
     },
     {
       "viewport": "iPhone 13",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "32×28"
+      "detail": "32×32"
     },
     {
       "viewport": "iPhone 13",
@@ -246,19 +246,19 @@
       "viewport": "iPhone 13 Pro Max",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×32"
     },
     {
       "viewport": "iPhone 13 Pro Max",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=10 headerTop=0"
+      "detail": "linkTop=8 headerTop=0"
     },
     {
       "viewport": "iPhone 13 Pro Max",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "32×28"
+      "detail": "32×32"
     },
     {
       "viewport": "iPhone 13 Pro Max",
@@ -306,19 +306,19 @@
       "viewport": "iPhone 15 Pro",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×32"
     },
     {
       "viewport": "iPhone 15 Pro",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=10 headerTop=0"
+      "detail": "linkTop=8 headerTop=0"
     },
     {
       "viewport": "iPhone 15 Pro",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "32×28"
+      "detail": "32×32"
     },
     {
       "viewport": "iPhone 15 Pro",
@@ -366,19 +366,19 @@
       "viewport": "iPad mini portrait",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×32"
     },
     {
       "viewport": "iPad mini portrait",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=10 headerTop=0"
+      "detail": "linkTop=8 headerTop=0"
     },
     {
       "viewport": "iPad mini portrait",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "32×28"
+      "detail": "32×32"
     },
     {
       "viewport": "iPad mini portrait",
@@ -426,19 +426,19 @@
       "viewport": "iPad Pro 11 portrait",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 32×28"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 32×32"
     },
     {
       "viewport": "iPad Pro 11 portrait",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=10 headerTop=0"
+      "detail": "linkTop=8 headerTop=0"
     },
     {
       "viewport": "iPad Pro 11 portrait",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "32×28"
+      "detail": "32×32"
     },
     {
       "viewport": "iPad Pro 11 portrait",
@@ -486,7 +486,7 @@
       "viewport": "laptop small",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 103×33"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 104×32"
     },
     {
       "viewport": "laptop small",
@@ -498,7 +498,7 @@
       "viewport": "laptop small",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "103×33"
+      "detail": "104×32"
     },
     {
       "viewport": "laptop small",
@@ -522,19 +522,19 @@
       "viewport": "laptop 1280",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 103×33"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 104×32"
     },
     {
       "viewport": "laptop 1280",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=11 headerTop=0"
+      "detail": "linkTop=12 headerTop=0"
     },
     {
       "viewport": "laptop 1280",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "103×33"
+      "detail": "104×32"
     },
     {
       "viewport": "laptop 1280",
@@ -558,19 +558,19 @@
       "viewport": "desktop 1440",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 103×33"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 104×32"
     },
     {
       "viewport": "desktop 1440",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=11 headerTop=0"
+      "detail": "linkTop=12 headerTop=0"
     },
     {
       "viewport": "desktop 1440",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "103×33"
+      "detail": "104×32"
     },
     {
       "viewport": "desktop 1440",
@@ -594,19 +594,19 @@
       "viewport": "desktop 1920",
       "check": "作者 𝕏 链接可见且指向 x.com/0xkillcoin",
       "ok": true,
-      "detail": "href=https://x.com/0xkillcoin target=_blank 103×33"
+      "detail": "href=https://x.com/0xkillcoin target=_blank 104×32"
     },
     {
       "viewport": "desktop 1920",
       "check": "𝕏 链接位于顶部 header 内（第一屏可见区域）",
       "ok": true,
-      "detail": "linkTop=11 headerTop=0"
+      "detail": "linkTop=12 headerTop=0"
     },
     {
       "viewport": "desktop 1920",
       "check": "𝕏 链接触控目标 ≥ 24×24（WCAG 2.5.8）",
       "ok": true,
-      "detail": "103×33"
+      "detail": "104×32"
     },
     {
       "viewport": "desktop 1920",
@@ -636,9 +636,9 @@
       "target": "_blank",
       "rel": "noopener noreferrer",
       "w": 32,
-      "h": 28,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 10,
+      "linkTop": 8,
       "headerTop": 0
     },
     {
@@ -649,9 +649,9 @@
       "target": "_blank",
       "rel": "noopener noreferrer",
       "w": 32,
-      "h": 28,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 10,
+      "linkTop": 8,
       "headerTop": 0
     },
     {
@@ -662,9 +662,9 @@
       "target": "_blank",
       "rel": "noopener noreferrer",
       "w": 32,
-      "h": 28,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 10,
+      "linkTop": 8,
       "headerTop": 0
     },
     {
@@ -675,9 +675,9 @@
       "target": "_blank",
       "rel": "noopener noreferrer",
       "w": 32,
-      "h": 28,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 10,
+      "linkTop": 8,
       "headerTop": 0
     },
     {
@@ -688,9 +688,9 @@
       "target": "_blank",
       "rel": "noopener noreferrer",
       "w": 32,
-      "h": 28,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 10,
+      "linkTop": 8,
       "headerTop": 0
     },
     {
@@ -701,9 +701,9 @@
       "target": "_blank",
       "rel": "noopener noreferrer",
       "w": 32,
-      "h": 28,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 10,
+      "linkTop": 8,
       "headerTop": 0
     },
     {
@@ -714,9 +714,9 @@
       "target": "_blank",
       "rel": "noopener noreferrer",
       "w": 32,
-      "h": 28,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 10,
+      "linkTop": 8,
       "headerTop": 0
     },
     {
@@ -727,9 +727,9 @@
       "target": "_blank",
       "rel": "noopener noreferrer",
       "w": 32,
-      "h": 28,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 10,
+      "linkTop": 8,
       "headerTop": 0
     },
     {
@@ -739,8 +739,8 @@
       "href": "https://x.com/0xkillcoin",
       "target": "_blank",
       "rel": "noopener noreferrer",
-      "w": 103,
-      "h": 33,
+      "w": 104,
+      "h": 32,
       "insideHeader": true,
       "linkTop": 6,
       "headerTop": 0
@@ -752,10 +752,10 @@
       "href": "https://x.com/0xkillcoin",
       "target": "_blank",
       "rel": "noopener noreferrer",
-      "w": 103,
-      "h": 33,
+      "w": 104,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 11,
+      "linkTop": 12,
       "headerTop": 0
     },
     {
@@ -765,10 +765,10 @@
       "href": "https://x.com/0xkillcoin",
       "target": "_blank",
       "rel": "noopener noreferrer",
-      "w": 103,
-      "h": 33,
+      "w": 104,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 11,
+      "linkTop": 12,
       "headerTop": 0
     },
     {
@@ -778,10 +778,10 @@
       "href": "https://x.com/0xkillcoin",
       "target": "_blank",
       "rel": "noopener noreferrer",
-      "w": 103,
-      "h": 33,
+      "w": 104,
+      "h": 32,
       "insideHeader": true,
-      "linkTop": 11,
+      "linkTop": 12,
       "headerTop": 0
     }
   ]

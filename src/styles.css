@@ -157,19 +157,37 @@ body {
   min-width: 0;
 }
 
+/* Brand mark: a soft tinted tile, not a saturated gradient block.
+   The earlier teal→violet fill read as a heavy, unrelated object next to the
+   neutral header; this keeps the accent only as a hint so the logo sits inside
+   the palette instead of shouting over it. */
 .brand-mark {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
   display: grid;
   place-items: center;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: -0.4px;
-  color: #04121a;
-  background: linear-gradient(140deg, var(--accent) 0%, var(--accent-2) 100%);
-  box-shadow: 0 4px 14px rgba(45, 212, 191, 0.28);
+  font-weight: 650;
+  font-size: 12.5px;
+  letter-spacing: -0.3px;
+  color: var(--accent);
+  background: linear-gradient(
+    150deg,
+    color-mix(in srgb, var(--accent) 15%, var(--surface-2)) 0%,
+    color-mix(in srgb, var(--accent-2) 12%, var(--surface-2)) 100%
+  );
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent);
   flex: 0 0 auto;
+}
+
+html[data-theme='light'] .brand-mark {
+  color: var(--accent);
+  background: linear-gradient(
+    150deg,
+    color-mix(in srgb, var(--accent) 12%, #ffffff) 0%,
+    color-mix(in srgb, var(--accent-2) 11%, #ffffff) 100%
+  );
+  border-color: color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 .brand-text {
@@ -299,45 +317,76 @@ body {
   line-height: 1.4;
 }
 
-/* X (author) link ---------------------------------------------------- */
-/* The badge is a direct child of <header>. On desktop it is ordered to the
-   far right, after the toolbar; on phones it stays on the first header line
-   at the right edge, with the toolbar wrapping to its own row below. */
-.x-link {
+/* Author X badge + overflow trigger -------------------------------- */
+/* Both are the same object visually: a 32px rounded-square tile with the same
+   radius, border and surface. An earlier version mixed a pill (𝕏) with a square
+   (⋯) on the same row, which read as two unrelated controls. */
+.x-link,
+.rail-more {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 6px 10px 6px 8px;
-  min-height: 28px;
-  border-radius: 999px;
+  height: 32px;
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: var(--radius); /* 10px — same as .rail-more and .brand-mark */
   border: 1px solid var(--border);
   background: var(--surface-2);
   color: var(--text-muted);
   text-decoration: none;
+  font: inherit;
   font-size: 12.5px;
+  line-height: 1;
   white-space: nowrap;
+  cursor: pointer;
   flex: 0 0 auto;
-  order: 3;
-  transition: all var(--dur) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
 }
-.x-link:hover {
+
+.x-link {
+  order: 3;
+}
+.rail-more {
+  order: 2;
+  width: 32px;
+  padding: 0;
+  appearance: none;
+}
+
+.x-link:hover,
+.rail-more:hover {
   color: var(--text);
   border-color: var(--border-strong);
   background: var(--surface-3);
-  box-shadow: 0 0 0 3px var(--accent-soft);
 }
-.x-link:focus-visible {
+.x-link:active,
+.rail-more:active {
+  background: var(--surface-3);
+}
+.x-link:focus-visible,
+.rail-more:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+.rail-more[aria-expanded='true'] {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  background: var(--accent-soft);
+}
+
+/* The 𝕏 glyph is optically heavier than three dots, so it is drawn slightly
+   smaller to keep both tiles looking the same weight. */
 .x-link .x-glyph {
   font-size: 13px;
   line-height: 1;
-  color: var(--text);
+  color: inherit;
 }
 .x-link svg {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
 }
 
 /* Workspace --------------------------------------------------------- */
@@ -1326,35 +1375,11 @@ html[data-theme='light'] {
   .x-link span.x-text {
     display: none;
   }
-  .x-link {
-    padding: 6px 8px;
+  /* On phones both tiles are icon-only and identical in size/radius. */
+  .header-compact .x-link {
+    width: 32px;
+    padding: 0;
   }
-
-  /* Overflow trigger: same visual weight as the badges, 36px touch target. */
-  .rail-more {
-    appearance: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 32px;
-    flex: 0 0 auto;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
-    background: var(--surface-2);
-    color: var(--text-muted);
-    cursor: pointer;
-  }
-  .rail-more:active {
-    background: var(--surface-3);
-    color: var(--text);
-  }
-  .rail-more[aria-expanded='true'] {
-    color: var(--accent);
-    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
-    background: var(--accent-soft);
-  }
-
   /* The action rail: equal-width columns, one row, no wrapping. */
   .mobile-rail {
     display: grid;
@@ -1835,5 +1860,208 @@ html[data-theme='light'] {
   /* The sheet and the rail only exist on compact layouts. */
   .sheet-backdrop {
     display: none;
+  }
+}
+
+/* ===================================================================
+   Sample library (示例数据)
+   Centred dialog on desktop, bottom sheet on phones.
+   =================================================================== */
+
+.picker-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 310;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(3, 7, 12, 0.6);
+  backdrop-filter: blur(3px);
+  animation: sheet-fade 160ms var(--ease);
+}
+
+.picker-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(640px, 100%);
+  max-height: min(76vh, 720px);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: picker-in 200ms var(--ease);
+}
+
+@keyframes picker-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.picker-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 12px 12px 18px;
+  border-bottom: 1px solid var(--border);
+  flex: 0 0 auto;
+}
+.picker-head h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+}
+.picker-count {
+  font-size: 11px;
+  color: var(--text-faint);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: 999px;
+  padding: 1px 8px;
+}
+.picker-head .btn {
+  margin-left: auto;
+}
+
+.picker-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-faint);
+  flex: 0 0 auto;
+}
+.picker-search .input {
+  background: transparent;
+  border: none;
+  padding: 2px 0;
+  font-size: 13px;
+}
+.picker-search .input:focus {
+  box-shadow: none;
+}
+
+.picker-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 6px 10px 14px;
+}
+
+.picker-section {
+  display: grid;
+  gap: 2px;
+}
+.picker-section .section-title {
+  margin: 14px 8px 4px;
+}
+
+.picker-item {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.picker-item:hover {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+.picker-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.picker-item > svg {
+  color: var(--text-faint);
+  flex: 0 0 auto;
+}
+.picker-item.invalid .picker-item-name {
+  color: var(--danger);
+}
+
+.picker-item-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.picker-item-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 550;
+}
+.picker-tag {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 0 6px;
+  border-radius: 999px;
+  color: var(--danger);
+  background: var(--danger-soft);
+  border: 1px solid color-mix(in srgb, var(--danger) 35%, transparent);
+}
+.picker-item-desc {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.picker-item-hint {
+  font-size: 11px;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+
+.picker-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 12.5px;
+}
+
+@media (max-width: 860px) {
+  .picker-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .picker-panel {
+    width: 100%;
+    max-width: none;
+    max-height: 88vh;
+    border-radius: 18px 18px 0 0;
+    border-bottom: none;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    animation: sheet-up 220ms var(--ease);
+  }
+  .picker-item {
+    min-height: 56px;
+    padding: 10px 8px;
+  }
+  /* The search field doubles as the first focus target on phones. */
+  .picker-search {
+    position: sticky;
+    top: 0;
+    z-index: 2;
   }
 }

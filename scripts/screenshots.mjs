@@ -13,7 +13,14 @@ await page.goto('http://127.0.0.1:4193/');
 await page.waitForTimeout(800);
 await page.screenshot({ path: `${OUT}/01-empty.png` });
 
+// Sample library picker (28 samples across 5 categories + search).
 await page.getByTestId('btn-sample').click();
+await page.getByTestId('sample-library').waitFor();
+await page.waitForTimeout(450);
+await page.screenshot({ path: `${OUT}/18-sample-library.png` });
+
+await page.getByTestId('sample-item-store').click();
+await page.getByTestId('sample-library').waitFor({ state: 'hidden' });
 await page.getByTestId('status-valid').waitFor({ timeout: 20000 });
 await page.getByTestId('expand-all').click();
 await page.waitForTimeout(600);
@@ -70,6 +77,9 @@ const mobile = await browser.newPage({ ...devices['iPhone 13'], deviceScaleFacto
 await mobile.goto('http://127.0.0.1:4193/');
 await mobile.waitForTimeout(600);
 await mobile.getByTestId('btn-sample').click();
+await mobile.getByTestId('sample-library').waitFor();
+await mobile.getByTestId('sample-item-store').click();
+await mobile.getByTestId('sample-library').waitFor({ state: 'hidden' });
 await mobile.getByTestId('status-valid').waitFor({ timeout: 20000 });
 await mobile.waitForTimeout(400);
 await mobile.screenshot({ path: `${OUT}/09-mobile-editor.png` });
@@ -93,6 +103,9 @@ const small = await browser.newPage({
 await small.goto('http://127.0.0.1:4193/');
 await small.waitForTimeout(600);
 await small.getByTestId('btn-sample').click();
+await small.getByTestId('sample-library').waitFor();
+await small.getByTestId('sample-item-store').click();
+await small.getByTestId('sample-library').waitFor({ state: 'hidden' });
 await small.getByTestId('status-valid').waitFor({ timeout: 20000 });
 await small.waitForTimeout(400);
 await small.screenshot({ path: `${OUT}/13-mobile-320-editor.png` });

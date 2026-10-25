@@ -4,6 +4,7 @@ import {
   expectEditorCompact,
   fillEditor,
   readEditorLines,
+  loadSample,
   SAMPLE_INVALID_TRAILING_COMMA,
 } from './helpers';
 
@@ -35,7 +36,7 @@ test.describe('JSON Surgery — 本地 JSON 工作台', () => {
   });
 
   test('加载示例后校验、树形、统计、查询全部可用', async ({ page }) => {
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
 
     await expect(page.getByTestId('status-valid')).toBeVisible({ timeout: 20_000 });
     await expect(page.getByTestId('error-banner')).toHaveCount(0);
@@ -135,7 +136,7 @@ test.describe('JSON Surgery — 本地 JSON 工作台', () => {
   });
 
   test('搜索树、复制节点路径', async ({ page }) => {
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
     await expect(page.getByTestId('tree-row').first()).toBeVisible({ timeout: 20_000 });
     await page.getByTestId('tree-search').fill('bicycle');
     const row = page.locator('.tree-row.matched').first();
@@ -148,7 +149,7 @@ test.describe('JSON Surgery — 本地 JSON 工作台', () => {
   });
 
   test('全部展开 / 全部折叠真实改变可见行数', async ({ page }) => {
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
     await expect(page.getByTestId('tree-row').first()).toBeVisible({ timeout: 20_000 });
     const before = await page.getByTestId('tree-row').count();
     await page.getByTestId('expand-all').click();
@@ -159,7 +160,7 @@ test.describe('JSON Surgery — 本地 JSON 工作台', () => {
   });
 
   test('执行 JSONPath 查询并把命中定位回树形视图', async ({ page }) => {
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
     await expect(page.getByTestId('status-valid')).toBeVisible({ timeout: 20_000 });
     await page.getByTestId('tab-query').click();
     await page.getByTestId('query-input').fill('$.store.book[*].title');
@@ -173,7 +174,7 @@ test.describe('JSON Surgery — 本地 JSON 工作台', () => {
   });
 
   test('非法 JSONPath 表达式给出错误而不是崩溃', async ({ page }) => {
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
     await expect(page.getByTestId('status-valid')).toBeVisible({ timeout: 20_000 });
     await page.getByTestId('tab-query').click();
     await page.getByTestId('query-input').fill('$..[?(@.price >)]');
@@ -237,7 +238,7 @@ test.describe('JSON Surgery — 本地 JSON 工作台', () => {
   });
 
   test('撤销 / 重做恢复文档', async ({ page }) => {
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
     await expect(page.getByTestId('status-valid')).toBeVisible({ timeout: 20_000 });
     await expect(page.getByTestId('btn-copy')).toBeEnabled();
 
@@ -254,7 +255,7 @@ test.describe('JSON Surgery — 本地 JSON 工作台', () => {
   });
 
   test('编辑器内搜索面板可以用 Ctrl+F 打开', async ({ page }) => {
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
     await expect(page.getByTestId('status-valid')).toBeVisible({ timeout: 20_000 });
     await page.locator('.cm-content').click();
     await page.keyboard.press('Control+f');
@@ -269,7 +270,7 @@ test.describe('JSON Surgery — 本地 JSON 工作台', () => {
         url.startsWith('http://127.0.0.1:4193') || url.startsWith('data:') || url.startsWith('blob:');
       if (!sameOrigin) external.push(url);
     });
-    await page.getByTestId('btn-sample').click();
+    await loadSample(page);
     await expect(page.getByTestId('status-valid')).toBeVisible({ timeout: 20_000 });
     await page.getByTestId('tab-query').click();
     await page.getByTestId('query-run').click();

@@ -7,6 +7,7 @@ import { QueryPanel } from './components/QueryPanel';
 import { DiffPanel } from './components/DiffPanel';
 import { ShortcutsDialog } from './components/ShortcutsDialog';
 import { MobileSheet, SheetAction } from './components/MobileSheet';
+import { SampleLibrary } from './components/SampleLibrary';
 import { useTheme } from './hooks/useTheme';
 import { useToasts } from './hooks/useToasts';
 import { useJsonWorker } from './hooks/useJsonWorker';
@@ -14,7 +15,7 @@ import { useIsCompactLayout } from './hooks/useMediaQuery';
 import { analyzeText, diffText, formatText, queryText } from './lib/engine';
 import { formatBytes } from './lib/format';
 import { samePath, toTreePath } from './lib/paths';
-import { SAMPLES } from './lib/samples';
+import { type SampleData } from './lib/samples';
 import type { DiffResult } from './lib/diff';
 import type { QueryResult } from './lib/query';
 import type { JsonStats } from './lib/stats';
@@ -44,6 +45,7 @@ export default function App() {
   const [sideOpen, setSideOpen] = useState(true);
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [libraryOpen, setLibraryOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
   const [busy, setBusy] = useState(false);
   const [search, setSearch] = useState('');
@@ -313,11 +315,11 @@ export default function App() {
   }, [push]);
 
   const loadSample = useCallback(
-    (index = 0) => {
-      const sample = SAMPLES[index] ?? SAMPLES[0]!;
+    (sample: SampleData) => {
       setText(sample.text);
       setRightText('');
       setFileName(null);
+      setLibraryOpen(false);
       push(`已加载示例：${sample.name}`, 'success');
     },
     [push],
@@ -432,7 +434,7 @@ export default function App() {
             return;
           case 'u':
             event.preventDefault();
-            loadSample(0);
+            setLibraryOpen(true);
             return;
           case 'z':
             event.preventDefault();
@@ -481,7 +483,7 @@ export default function App() {
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [applyFormat, copyText, text, downloadJson, clearAll, openFile, toggleTheme, loadSample, runAnalyze]);
+  }, [applyFormat, copyText, text, downloadJson, clearAll, openFile, toggleTheme, runAnalyze]);
 
   // ---------------------------------------------------------------------
   // Tree helpers
@@ -774,8 +776,8 @@ export default function App() {
               <button
                 type="button"
                 className="rail-btn"
-                onClick={() => loadSample(0)}
-                title="加载示例数据"
+                onClick={() => setLibraryOpen(true)}
+                title="示例数据（多种结构）"
                 data-testid="btn-sample"
               >
                 <Icon name="sparkles" size={17} />
@@ -875,8 +877,8 @@ export default function App() {
             <button
               type="button"
               className="btn"
-              onClick={() => loadSample(0)}
-              title="加载示例数据 (Ctrl+Shift+U)"
+              onClick={() => setLibraryOpen(true)}
+              title="示例数据：多种结构 (Ctrl+Shift+U)"
               data-testid="btn-sample"
             >
               <Icon name="sparkles" size={15} />
@@ -1318,6 +1320,12 @@ export default function App() {
       </div>
 
       <ShortcutsDialog open={shortcutsOpen} onClose={() => setShortcutsOpen(false)} />
+
+      <SampleLibrary
+        open={libraryOpen}
+        onClose={() => setLibraryOpen(false)}
+        onPick={(sample) => loadSample(sample)}
+      />
     </div>
   );
 }

@@ -40,7 +40,10 @@
     "screenshots": "node scripts/screenshots.mjs",
     "audit:responsive": "node scripts/audit-responsive.mjs",
     "verify:live": "node scripts/verify-live.mjs",
-    "check": "npm run lint && npm run test && npm run build"
+    "check": "npm run lint && npm run test && npm run build",
+    "audit:visual": "node scripts/audit-visual.mjs",
+    "measure:header": "node scripts/measure-header.mjs",
+    "align:local": "node scripts/align-local.mjs"
   },
   "dependencies": {
     "@codemirror/autocomplete": "^6.18.4",

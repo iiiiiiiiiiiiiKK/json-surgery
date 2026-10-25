@@ -61,4 +61,18 @@ export function compact(text: string): string {
   return text.replace(/\s+/g, '');
 }
 
+/**
+ * Load a sample through the sample library.
+ *
+ * The "示例" button opens a picker (category + search) rather than instantly
+ * loading one fixed document, so every test that needs sample data goes through
+ * this helper instead of duplicating the two clicks.
+ */
+export async function loadSample(page: Page, id = 'store') {
+  await page.getByTestId('btn-sample').click();
+  await expect(page.getByTestId('sample-library')).toBeVisible();
+  await page.getByTestId(`sample-item-${id}`).click();
+  await expect(page.getByTestId('sample-library')).toBeHidden();
+}
+
 export const SAMPLE_INVALID_TRAILING_COMMA = ['{', '  "a": 1,', '  "b": [1, 2,],', '  "c": true', '}'].join('\n');

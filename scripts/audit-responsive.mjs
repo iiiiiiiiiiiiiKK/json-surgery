@@ -171,6 +171,9 @@ for (const vp of VIEWPORTS) {
 
     /* --- 5. core flow still works on the phone --- */
     await page.getByTestId('btn-sample').click();
+await page.getByTestId('sample-library').waitFor();
+await page.getByTestId('sample-item-store').click();
+await page.getByTestId('sample-library').waitFor({ state: 'hidden' });
     await page.getByTestId('status-valid').waitFor({ timeout: 25_000 });
     await page.getByTestId('mobile-tab-side').click();
     await page.getByTestId('tab-stats').click();
